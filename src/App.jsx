@@ -1,10 +1,11 @@
 import { useState } from "react";
 import "./App.css";
+import CreditCard from "./components/creditCard/CreditCard";
 
 function App() {
   return (
     <>
-      <div>React</div>
+      <CreditCard />
     </>
   );
 }
