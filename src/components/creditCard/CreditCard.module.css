@@ -11,7 +11,9 @@
   width: 350px;
   height: 200px;
   border-radius: 12px;
+  color: #fff;
   margin: 10px;
+  position: relative;
 }
 .back_card {
   background-image: url("bg-card-back.png");
@@ -21,8 +23,21 @@
   height: 200px;
   border-radius: 12px;
   margin: 10px;
+  position: relative;
+}
+.number {
+  position: absolute;
+  top: 45%;
+  left: 23%;
+  font-size: 22px;
 }
 .name {
   position: absolute;
-  top: 35%;
+  top: 85%;
+  left: 5%;
+}
+.expire_date {
+  position: absolute;
+  top: 85%;
+  left: 85%;
 }
