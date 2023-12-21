@@ -47,3 +47,53 @@
   top: 44%;
   left: 85%;
 }
+/* form container */
+.form_container {
+  display: flex;
+  justify-content: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  background-color: lightslategray;
+  margin: 10px;
+  padding: 10px;
+  max-width: 100%;
+  border-radius: 12px;
+}
+label {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+input {
+  padding: 6px;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  margin-top: 10px;
+}
+.expire {
+  margin-top: 10px;
+}
+
+.small_input {
+  text-align: center;
+  width: 50px;
+}
+
+.big_input {
+  text-align: center;
+  width: 80px;
+}
+
+.m_y_cvc {
+  display: flex;
+  justify-content: space-between;
+}
+
+.expire_label {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
