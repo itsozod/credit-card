@@ -22,3 +22,7 @@
   border-radius: 12px;
   margin: 10px;
 }
+.name {
+  position: absolute;
+  top: 35%;
+}

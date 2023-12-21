@@ -5,9 +5,13 @@ const Form = () => {
     <div className={styles.form_container}>
       <form className={styles.form}>
         <label>Card holder name</label>
-        <input type="text" placeholder="Enter card holder name" />
+        <input
+          type="text"
+          placeholder="Enter card holder name"
+          maxLength={19}
+        />
         <label>Card number</label>
-        <input type="text" placeholder="Enter card number " />
+        <input type="text" placeholder="Enter card number " maxLength={16} />
         <h3 className={styles.expire}>Expire Date</h3>
         <div className={styles.m_y_cvc}>
           <div className={styles.expire_label}>
@@ -16,6 +20,7 @@ const Form = () => {
               type="text"
               placeholder="MM"
               className={styles.small_input}
+              maxLength={2}
             />
           </div>
           <div className={styles.expire_label}>
@@ -24,11 +29,17 @@ const Form = () => {
               type="text"
               placeholder="YY"
               className={styles.small_input}
+              maxLength={4}
             />
           </div>
           <div className={styles.expire_label}>
             <label>CVC</label>
-            <input type="text" placeholder="CVC" className={styles.big_input} />
+            <input
+              type="text"
+              placeholder="CVC"
+              className={styles.big_input}
+              maxLength={3}
+            />
           </div>
         </div>
       </form>
