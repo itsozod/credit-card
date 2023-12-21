@@ -24,6 +24,7 @@
   border-radius: 12px;
   margin: 10px;
   position: relative;
+  color: #fff;
 }
 .number {
   position: absolute;
@@ -38,6 +39,11 @@
 }
 .expire_date {
   position: absolute;
-  top: 85%;
+  top: 86%;
+  left: 85%;
+}
+.cvc {
+  position: absolute;
+  top: 44%;
   left: 85%;
 }

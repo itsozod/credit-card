@@ -8,9 +8,11 @@ const CreditCard = ({ children }) => {
         <article className={styles.front_card}>
           <h1 className={styles.number}>1234 4567 7899 1111</h1>
           <h3 className={styles.name}>Ozod Bukhorizoda</h3>
-          <h3 className={styles.expire_date}>05/26</h3>
+          <h4 className={styles.expire_date}>05/26</h4>
         </article>
-        <article className={styles.back_card}>Back-card</article>
+        <article className={styles.back_card}>
+          <h3 className={styles.cvc}>649</h3>
+        </article>
       </article>
       {children}
     </section>
