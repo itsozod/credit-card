@@ -1,0 +1,23 @@
+.credit_card_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.front_card {
+  background-image: url("bg-card-front.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 350px;
+  height: 200px;
+  border-radius: 12px;
+  margin: 10px;
+}
+.back_card {
+  background-image: url("bg-card-back.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 350px;
+  height: 200px;
+  border-radius: 12px;
+  margin: 10px;
+}
