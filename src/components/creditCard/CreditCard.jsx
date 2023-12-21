@@ -2,6 +2,7 @@
 import { useState } from "react";
 import styles from "./CreditCard.module.css";
 import { useColorChange } from "../../hooks/UseColorChange";
+import { useImageChange } from "../../hooks/UseImageChange";
 export const CreditCard = () => {
   const [cardHolder, setCardHolder] = useState("Card Holder");
   const [cardNumber, setCardNumber] = useState("");
@@ -9,6 +10,7 @@ export const CreditCard = () => {
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [cardColor] = useColorChange();
+  const [cardImage] = useImageChange();
 
   const handleCardNumber = (e) => {
     const value = e.target.value.replace(/\D/g, "");
@@ -22,6 +24,7 @@ export const CreditCard = () => {
           style={{ background: cardColor }}
           className={styles.front_card}
         >
+          <img className={styles.card_img} src={cardImage} alt="Image" />
           <h1 className={styles.number}>{cardNumber}</h1>
           <h3 className={styles.name}>{cardHolder}</h3>
           <h4 className={styles.expire_date}>
@@ -70,7 +73,7 @@ export const CreditCard = () => {
                 type="text"
                 placeholder="YY"
                 className={styles.small_input}
-                maxLength={4}
+                maxLength={2}
                 value={year}
                 onChange={(e) => setYear(e.target.value)}
               />

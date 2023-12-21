@@ -6,10 +6,10 @@ export const ColorProvider = createContext(null);
 export const Color = ({ children }) => {
   const [cardColor, setCardColor] = useState("green");
 
-  // function to change state from false to true
   const handleCardColor = (color) => {
     setCardColor(color);
   };
+
   return (
     <ColorProvider.Provider value={[cardColor, handleCardColor]}>
       {children}

@@ -4,7 +4,14 @@ import styles from "./CardSelection.module.css";
 export const CardSelection = () => {
   const [cardColor, handleCardColor] = useColorChange();
 
-  const colorsOptions = ["red", "green", "blue", "brown", "purple", "orange"];
+  const colorsOptions = [
+    "red",
+    "green",
+    "blue",
+    "brown",
+    "purple",
+    "goldenrod",
+  ];
 
   return (
     <>

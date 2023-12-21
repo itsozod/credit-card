@@ -25,6 +25,14 @@
   position: relative;
   color: #fff;
 }
+.card_img {
+  position: absolute;
+  top: -10%;
+  right: 68%;
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+}
 .number {
   position: absolute;
   top: 45%;
