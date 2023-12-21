@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import styles from "./CreditCard.module.css";
+import { useColorChange } from "../../hooks/UseColorChange";
 export const CreditCard = () => {
   const [cardHolder, setCardHolder] = useState("Card Holder");
   const [cardNumber, setCardNumber] = useState("");
   const [cvc, setCvc] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
+  const [cardColor] = useColorChange();
 
   const handleCardNumber = (e) => {
     const value = e.target.value.replace(/\D/g, "");
@@ -16,7 +18,10 @@ export const CreditCard = () => {
   return (
     <section className={styles.credit_card_container}>
       <article className={styles.cards_holder}>
-        <article className={styles.front_card}>
+        <article
+          style={{ background: cardColor }}
+          className={styles.front_card}
+        >
           <h1 className={styles.number}>{cardNumber}</h1>
           <h3 className={styles.name}>{cardHolder}</h3>
           <h4 className={styles.expire_date}>

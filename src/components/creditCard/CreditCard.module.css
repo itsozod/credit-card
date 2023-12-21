@@ -2,12 +2,11 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* flex-direction: column; */
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 .front_card {
-  background-image: url("bg-card-front.png");
-  background-size: cover;
-  background-repeat: no-repeat;
   width: 350px;
   height: 200px;
   border-radius: 12px;
