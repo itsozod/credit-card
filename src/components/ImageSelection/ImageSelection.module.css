@@ -1,0 +1,13 @@
+.image_container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: #000;
+  border-radius: 12px;
+}
+
+.new_img {
+  width: 200px;
+  object-fit: cover;
+  cursor: pointer;
+}
