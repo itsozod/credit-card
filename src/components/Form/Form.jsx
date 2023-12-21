@@ -1,6 +1,9 @@
 import styles from "./Form.module.css";
+import { ChangeStates } from "../../App";
+import { useContext } from "react";
 
 const Form = () => {
+  const [cardHolder, setCardHolder] = useContext(ChangeStates);
   return (
     <div className={styles.form_container}>
       <form className={styles.form}>
@@ -9,6 +12,8 @@ const Form = () => {
           type="text"
           placeholder="Enter card holder name"
           maxLength={19}
+          value={cardHolder}
+          onChange={(e) => setCardHolder(e.target.value)}
         />
         <label>Card number</label>
         <input type="text" placeholder="Enter card number " maxLength={16} />
