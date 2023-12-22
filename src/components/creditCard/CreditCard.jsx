@@ -1,31 +1,33 @@
-/* eslint-disable react/prop-types */
-import { useState } from "react";
 import styles from "./CreditCard.module.css";
 import { useColorChange } from "../../hooks/UseColorChange";
 import { useImageChange } from "../../hooks/UseImageChange";
-import { CHANGECARDHOLDER } from "../../store/actions/cardHolderAction";
 import { useSelector, useDispatch } from "react-redux";
+import { changeCardDetails } from "../../store/functions/changeCardDetails";
 export const CreditCard = () => {
-  const cardHolder = useSelector(
-    (cardHolder) => cardHolder.cardHolderReducer.name
-  );
+  const cardHolder = useSelector((state) => state.cardHolderReducer);
   const dispatch = useDispatch();
   // const [cardHolder, setCardHolder] = useState("Card Holder");
-  const [cardNumber, setCardNumber] = useState("");
-  const [cvc, setCvc] = useState("");
-  const [month, setMonth] = useState("");
-  const [year, setYear] = useState("");
+  // const [cardNumber, setCardNumber] = useState("");
+  // const [cvc, setCvc] = useState("");
+  // const [month, setMonth] = useState("");
+  // const [year, setYear] = useState("");
 
   // сustom hooks
   const [cardColor] = useColorChange();
   const [cardImage] = useImageChange();
 
-  // function for cardNumber change
-  const handleCardNumber = (e) => {
-    const value = e.target.value.replace(/\D/g, "");
-    const formattedValue = value.replace(/(\d{4})/g, "$1 ").trim();
-    setCardNumber(formattedValue);
+  // function for changing card details
+  const handleCardDetails = (name, value) => {
+    dispatch(changeCardDetails(name, value));
   };
+
+  // function for separating number on cardNumber
+  const handleCardNumber = (name, value) => {
+    const newValue = value.replace(/\D/g, "");
+    const formattedValue = newValue.replace(/(\d{4})/g, "$1 ").trim();
+    dispatch(changeCardDetails(name, formattedValue));
+  };
+
   return (
     <section className={styles.credit_card_container}>
       <article className={styles.cards_holder}>
@@ -36,15 +38,15 @@ export const CreditCard = () => {
           {cardImage && (
             <img className={styles.card_img} src={cardImage} alt="Image" />
           )}
-          <h1 className={styles.number}>{cardNumber}</h1>
-          <h3 className={styles.name}>{cardHolder}</h3>
+          <h1 className={styles.number}>{cardHolder.number}</h1>
+          <h3 className={styles.name}>{cardHolder.name}</h3>
           <h4 className={styles.expire_date}>
-            {month}/{year}
+            {cardHolder.month}/{cardHolder.year}
           </h4>
         </article>
-        {/* <article className={styles.back_card}>
-          <h3 className={styles.cvc}>{cvc}</h3>
-        </article> */}
+        <article className={styles.back_card}>
+          <h3 className={styles.cvc}>{cardHolder.cvc}</h3>
+        </article>
       </article>
       {/* form container */}
       <div className={styles.form_container}>
@@ -54,17 +56,19 @@ export const CreditCard = () => {
             type="text"
             placeholder="Enter card number"
             maxLength={19}
-            value={cardNumber}
-            onChange={(e) => handleCardNumber(e)}
+            name="number"
+            value={cardHolder.number}
+            onChange={(e) => handleCardNumber(e.target.name, e.target.value)}
           />
           <label>Card holder name</label>
           <input
             type="text"
             placeholder="Enter card holder name"
             maxLength={19}
-            value={cardHolder}
+            name="name"
+            value={cardHolder.name}
             onChange={(e) =>
-              dispatch({ type: CHANGECARDHOLDER, payload: e.target.value })
+              handleCardDetails(e.target.name, e.target.value.toUpperCase())
             }
           />
           <h3 className={styles.expire}>Expire Date</h3>
@@ -76,8 +80,11 @@ export const CreditCard = () => {
                 placeholder="MM"
                 className={styles.small_input}
                 maxLength={2}
-                value={month}
-                onChange={(e) => setMonth(e.target.value)}
+                name="month"
+                value={cardHolder.month}
+                onChange={(e) =>
+                  handleCardDetails(e.target.name, e.target.value)
+                }
               />
             </div>
             <div className={styles.expire_label}>
@@ -87,8 +94,11 @@ export const CreditCard = () => {
                 placeholder="YY"
                 className={styles.small_input}
                 maxLength={2}
-                value={year}
-                onChange={(e) => setYear(e.target.value)}
+                name="year"
+                value={cardHolder.year}
+                onChange={(e) =>
+                  handleCardDetails(e.target.name, e.target.value)
+                }
               />
             </div>
             <div className={styles.expire_label}>
@@ -98,8 +108,11 @@ export const CreditCard = () => {
                 placeholder="CVC"
                 className={styles.big_input}
                 maxLength={3}
-                value={cvc}
-                onChange={(e) => setCvc(e.target.value)}
+                name="cvc"
+                value={cardHolder.cvc}
+                onChange={(e) =>
+                  handleCardDetails(e.target.name, e.target.value)
+                }
               />
             </div>
           </div>
