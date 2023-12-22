@@ -3,8 +3,14 @@ import { useState } from "react";
 import styles from "./CreditCard.module.css";
 import { useColorChange } from "../../hooks/UseColorChange";
 import { useImageChange } from "../../hooks/UseImageChange";
+import { CHANGECARDHOLDER } from "../../store/actions/cardHolderAction";
+import { useSelector, useDispatch } from "react-redux";
 export const CreditCard = () => {
-  const [cardHolder, setCardHolder] = useState("Card Holder");
+  const cardHolder = useSelector(
+    (cardHolder) => cardHolder.cardHolderReducer.name
+  );
+  const dispatch = useDispatch();
+  // const [cardHolder, setCardHolder] = useState("Card Holder");
   const [cardNumber, setCardNumber] = useState("");
   const [cvc, setCvc] = useState("");
   const [month, setMonth] = useState("");
@@ -36,9 +42,9 @@ export const CreditCard = () => {
             {month}/{year}
           </h4>
         </article>
-        <article className={styles.back_card}>
+        {/* <article className={styles.back_card}>
           <h3 className={styles.cvc}>{cvc}</h3>
-        </article>
+        </article> */}
       </article>
       {/* form container */}
       <div className={styles.form_container}>
@@ -57,7 +63,9 @@ export const CreditCard = () => {
             placeholder="Enter card holder name"
             maxLength={19}
             value={cardHolder}
-            onChange={(e) => setCardHolder(e.target.value)}
+            onChange={(e) =>
+              dispatch({ type: CHANGECARDHOLDER, payload: e.target.value })
+            }
           />
           <h3 className={styles.expire}>Expire Date</h3>
           <div className={styles.m_y_cvc}>
