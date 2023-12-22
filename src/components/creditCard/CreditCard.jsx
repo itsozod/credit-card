@@ -20,7 +20,6 @@ export const CreditCard = () => {
   // const handleCardDetails = (name, value) => {
   //   dispatch(changeCardDetails(name, value));
   // };
-
   // function for separating number on cardNumber
   const handleCardNumber = (name, value) => {
     const newValue = value.replace(/\D/g, "");
@@ -133,9 +132,6 @@ export const CreditCard = () => {
           </div>
         </form>
       </div>
-      {/* <button onClick={() => dispatch({ type: CHANGE_TO_RED, payload: "red" })}>
-        Red
-      </button> */}
     </section>
   );
 };

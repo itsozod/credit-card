@@ -1,8 +1,2 @@
 export const CHANGECARDHOLDER = "CHANGECARDHOLDER";
 export const CHANGE_COLOR = "CHANGE_TO_RED";
-// export const CHANGE_TO_GREEN = "CHANGE_TO_GREEN";
-// export const CHANGE_TO_BLUE = "CHANGE_TO_BLUE";
-// export const CHANGE_TO_BROWN = "CHANGE_TO_BROWN";
-// export const CHANGE_TO_PURPLE = "CHANGE_TO_PURPLE";
-// export const CHANGE_TO_GOLDENROD = "CHANGE_TO_GOLDENROD";
-// export const CHANGE_TO_BLACK = "CHANGE_TO_BLACK";
