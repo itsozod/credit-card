@@ -12,6 +12,7 @@ export const CardSelection = () => {
     "brown",
     "purple",
     "goldenrod",
+    "black",
   ];
 
   return (

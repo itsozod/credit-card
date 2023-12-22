@@ -4,7 +4,7 @@ export const ColorProvider = createContext(null);
 
 // Component to wrap around whole app and change its state
 export const Color = ({ children }) => {
-  const [cardColor, setCardColor] = useState("green");
+  const [cardColor, setCardColor] = useState("black");
 
   const handleCardColor = (color) => {
     setCardColor(color);
