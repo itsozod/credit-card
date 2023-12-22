@@ -9,9 +9,12 @@ export const CreditCard = () => {
   const [cvc, setCvc] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
+
+  // сustom hooks
   const [cardColor] = useColorChange();
   const [cardImage] = useImageChange();
 
+  // function for cardNumber change
   const handleCardNumber = (e) => {
     const value = e.target.value.replace(/\D/g, "");
     const formattedValue = value.replace(/(\d{4})/g, "$1 ").trim();
@@ -24,7 +27,9 @@ export const CreditCard = () => {
           style={{ background: cardColor }}
           className={styles.front_card}
         >
-          <img className={styles.card_img} src={cardImage} alt="Image" />
+          {cardImage && (
+            <img className={styles.card_img} src={cardImage} alt="Image" />
+          )}
           <h1 className={styles.number}>{cardNumber}</h1>
           <h3 className={styles.name}>{cardHolder}</h3>
           <h4 className={styles.expire_date}>
