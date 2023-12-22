@@ -34,7 +34,7 @@ export const CreditCard = () => {
             <img className={styles.card_img} src={cardImage} alt="Image" />
           )}
           <h1 className={styles.number}>{cardHolder.number}</h1>
-          <h3 className={styles.name}>{cardHolder.name}</h3>
+          <h3 className={styles.name}>{cardHolder.name || "CARD HOLDER"}</h3>
           <h4 className={styles.expire_date}>
             {cardHolder.month}/{cardHolder.year}
           </h4>

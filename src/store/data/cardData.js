@@ -1,5 +1,5 @@
 export const cardHolder = {
-  name: "CARD HOLDER",
+  name: "",
   number: "",
   month: "",
   year: "",
