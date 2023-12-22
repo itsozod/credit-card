@@ -2,24 +2,19 @@ import styles from "./CreditCard.module.css";
 import { useColorChange } from "../../hooks/UseColorChange";
 import { useImageChange } from "../../hooks/UseImageChange";
 import { useSelector, useDispatch } from "react-redux";
-import { changeCardDetails } from "../../store/functions/changeCardDetails";
+import { changeCardDetails } from "../../store/actionFunctions/changeCardDetails";
+import { CHANGECARDHOLDER } from "../../store/actions/cardHolderAction";
 export const CreditCard = () => {
   const cardHolder = useSelector((state) => state.cardHolderReducer);
   const dispatch = useDispatch();
-  // const [cardHolder, setCardHolder] = useState("Card Holder");
-  // const [cardNumber, setCardNumber] = useState("");
-  // const [cvc, setCvc] = useState("");
-  // const [month, setMonth] = useState("");
-  // const [year, setYear] = useState("");
-
   // сustom hooks
   const [cardColor] = useColorChange();
   const [cardImage] = useImageChange();
 
   // function for changing card details
-  const handleCardDetails = (name, value) => {
-    dispatch(changeCardDetails(name, value));
-  };
+  // const handleCardDetails = (name, value) => {
+  //   dispatch(changeCardDetails(name, value));
+  // };
 
   // function for separating number on cardNumber
   const handleCardNumber = (name, value) => {
@@ -68,7 +63,13 @@ export const CreditCard = () => {
             name="name"
             value={cardHolder.name}
             onChange={(e) =>
-              handleCardDetails(e.target.name, e.target.value.toUpperCase())
+              dispatch({
+                type: CHANGECARDHOLDER,
+                payload: {
+                  name: [e.target.name],
+                  value: e.target.value.toUpperCase(),
+                },
+              })
             }
           />
           <h3 className={styles.expire}>Expire Date</h3>
@@ -83,7 +84,10 @@ export const CreditCard = () => {
                 name="month"
                 value={cardHolder.month}
                 onChange={(e) =>
-                  handleCardDetails(e.target.name, e.target.value)
+                  dispatch({
+                    type: CHANGECARDHOLDER,
+                    payload: { name: [e.target.name], value: e.target.value },
+                  })
                 }
               />
             </div>
@@ -97,7 +101,10 @@ export const CreditCard = () => {
                 name="year"
                 value={cardHolder.year}
                 onChange={(e) =>
-                  handleCardDetails(e.target.name, e.target.value)
+                  dispatch({
+                    type: CHANGECARDHOLDER,
+                    payload: { name: [e.target.name], value: e.target.value },
+                  })
                 }
               />
             </div>
@@ -111,7 +118,10 @@ export const CreditCard = () => {
                 name="cvc"
                 value={cardHolder.cvc}
                 onChange={(e) =>
-                  handleCardDetails(e.target.name, e.target.value)
+                  dispatch({
+                    type: CHANGECARDHOLDER,
+                    payload: { name: [e.target.name], value: e.target.value },
+                  })
                 }
               />
             </div>
