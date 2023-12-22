@@ -1,14 +1,19 @@
 import styles from "./CreditCard.module.css";
-import { useColorChange } from "../../hooks/UseColorChange";
+// import { useColorChange } from "../../hooks/UseColorChange";
 import { useImageChange } from "../../hooks/UseImageChange";
 import { useSelector, useDispatch } from "react-redux";
 import { changeCardDetails } from "../../store/actionFunctions/changeCardDetails";
 import { CHANGECARDHOLDER } from "../../store/actions/cardHolderAction";
+// import { CHANGE_TO_COLOR } from "../../store/actions/cardHolderAction";
 export const CreditCard = () => {
+  // card Information
   const cardHolder = useSelector((state) => state.cardHolderReducer);
+  // card color
+  const cardColor = useSelector((state) => state.changeColorReducer.color);
+  // dispatch function
   const dispatch = useDispatch();
   // сustom hooks
-  const [cardColor] = useColorChange();
+  // const [cardColor] = useColorChange();
   const [cardImage] = useImageChange();
 
   // function for changing card details
@@ -128,6 +133,9 @@ export const CreditCard = () => {
           </div>
         </form>
       </div>
+      {/* <button onClick={() => dispatch({ type: CHANGE_TO_RED, payload: "red" })}>
+        Red
+      </button> */}
     </section>
   );
 };

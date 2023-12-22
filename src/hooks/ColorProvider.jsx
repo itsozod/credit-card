@@ -1,18 +1,18 @@
-/* eslint-disable react/prop-types */
-import { useState, createContext } from "react";
-export const ColorProvider = createContext(null);
+// /* eslint-disable react/prop-types */
+// import { useState, createContext } from "react";
+// export const ColorProvider = createContext(null);
 
-// Component to wrap around whole app and change its state
-export const Color = ({ children }) => {
-  const [cardColor, setCardColor] = useState("black");
+// // Component to wrap around whole app and change its state
+// export const Color = ({ children }) => {
+//   const [cardColor, setCardColor] = useState("black");
 
-  const handleCardColor = (color) => {
-    setCardColor(color);
-  };
+//   const handleCardColor = (color) => {
+//     setCardColor(color);
+//   };
 
-  return (
-    <ColorProvider.Provider value={[cardColor, handleCardColor]}>
-      {children}
-    </ColorProvider.Provider>
-  );
-};
+//   return (
+//     <ColorProvider.Provider value={[cardColor, handleCardColor]}>
+//       {children}
+//     </ColorProvider.Provider>
+//   );
+// };

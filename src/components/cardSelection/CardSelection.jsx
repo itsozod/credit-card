@@ -1,37 +1,37 @@
-import { useColorChange } from "../../hooks/UseColorChange";
-import styles from "./CardSelection.module.css";
+// // import { useColorChange } from "../../hooks/UseColorChange";
+// import styles from "./CardSelection.module.css";
 
-export const CardSelection = () => {
-  const [cardColor, handleCardColor] = useColorChange();
+// export const CardSelection = () => {
+//   const [cardColor, handleCardColor] = useColorChange();
 
-  // color options
-  const colorsOptions = [
-    "red",
-    "green",
-    "blue",
-    "brown",
-    "purple",
-    "goldenrod",
-    "black",
-  ];
+//   // color options
+//   const colorsOptions = [
+//     "red",
+//     "green",
+//     "blue",
+//     "brown",
+//     "purple",
+//     "goldenrod",
+//     "black",
+//   ];
 
-  return (
-    <>
-      <div>
-        <label>Card Color: {cardColor}</label>
-      </div>
-      <div>
-        {colorsOptions.map((color) => (
-          <button
-            className={styles.btn}
-            key={color}
-            style={{ backgroundColor: color }}
-            onClick={() => handleCardColor(color)}
-          >
-            {color}
-          </button>
-        ))}
-      </div>
-    </>
-  );
-};
+//   return (
+//     <>
+//       <div>
+//         <label>Card Color: {cardColor}</label>
+//       </div>
+//       <div>
+//         {colorsOptions.map((color) => (
+//           <button
+//             className={styles.btn}
+//             key={color}
+//             style={{ backgroundColor: color }}
+//             onClick={() => handleCardColor(color)}
+//           >
+//             {color}
+//           </button>
+//         ))}
+//       </div>
+//     </>
+//   );
+// };
