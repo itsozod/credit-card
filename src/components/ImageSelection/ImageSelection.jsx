@@ -5,7 +5,15 @@ import { CHANGE_IMAGE } from "../../store/actions/cardHolderAction";
 
 export const ImageSelection = () => {
   const cardImage = useSelector((state) => state.changeImageReducer.img);
-  const imageOptions = ["js.png", "react.png", "liverpool.png"];
+  const imageOptions = [
+    "js.png",
+    "react.png",
+    "angular.png",
+    "liverpool.png",
+    "tjkflag.png",
+    "tjklogo.png",
+    "usaflag.png",
+  ];
   const dispatch = useDispatch();
   return (
     <>

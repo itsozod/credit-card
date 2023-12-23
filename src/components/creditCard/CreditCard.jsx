@@ -2,15 +2,13 @@ import styles from "./CreditCard.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { changeCardDetails } from "../../store/actionFunctions/changeCardDetails";
 import { CHANGECARDHOLDER } from "../../store/actions/cardHolderAction";
+import { useState } from "react";
 export const CreditCard = () => {
-  // card Information
   const cardHolder = useSelector((state) => state.cardHolderReducer);
-  // card color
   const cardColor = useSelector((state) => state.changeColorReducer.color);
-  // card image
   const cardImage = useSelector((state) => state.changeImageReducer.img);
-  // dispatch function
   const dispatch = useDispatch();
+  const [flip, setFlip] = useState(false);
 
   // function for changing card details
   // const handleCardDetails = (name, value) => {
@@ -26,7 +24,10 @@ export const CreditCard = () => {
 
   return (
     <section className={styles.credit_card_container}>
-      <article className={styles.cards_holder}>
+      <article
+        className={styles.cards_holder}
+        style={{ transform: flip ? "rotateY(180deg)" : "" }}
+      >
         <article
           style={{ background: cardColor }}
           className={styles.front_card}
@@ -44,6 +45,12 @@ export const CreditCard = () => {
           <h3 className={styles.cvc}>{cardHolder.cvc}</h3>
         </article>
       </article>
+      <button
+        className={styles.flipBtn}
+        onClick={() => setFlip((prevFlip) => !prevFlip)}
+      >
+        {flip ? "Flip to Front side" : "Flip to Back side"}
+      </button>
       {/* form container */}
       <div className={styles.form_container}>
         <form className={styles.form}>
