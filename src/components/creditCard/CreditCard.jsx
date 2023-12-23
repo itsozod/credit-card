@@ -1,25 +1,22 @@
 import styles from "./CreditCard.module.css";
-// import { useColorChange } from "../../hooks/UseColorChange";
-import { useImageChange } from "../../hooks/UseImageChange";
 import { useSelector, useDispatch } from "react-redux";
 import { changeCardDetails } from "../../store/actionFunctions/changeCardDetails";
 import { CHANGECARDHOLDER } from "../../store/actions/cardHolderAction";
-// import { CHANGE_TO_COLOR } from "../../store/actions/cardHolderAction";
 export const CreditCard = () => {
   // card Information
   const cardHolder = useSelector((state) => state.cardHolderReducer);
   // card color
   const cardColor = useSelector((state) => state.changeColorReducer.color);
+  // card image
+  const cardImage = useSelector((state) => state.changeImageReducer.img);
   // dispatch function
   const dispatch = useDispatch();
-  // сustom hooks
-  // const [cardColor] = useColorChange();
-  const [cardImage] = useImageChange();
 
   // function for changing card details
   // const handleCardDetails = (name, value) => {
   //   dispatch(changeCardDetails(name, value));
   // };
+
   // function for separating number on cardNumber
   const handleCardNumber = (name, value) => {
     const newValue = value.replace(/\D/g, "");

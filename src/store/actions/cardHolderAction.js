@@ -1,2 +1,3 @@
 export const CHANGECARDHOLDER = "CHANGECARDHOLDER";
 export const CHANGE_COLOR = "CHANGE_TO_RED";
+export const CHANGE_IMAGE = "CHANGE_IMAGE";

@@ -1,17 +1,17 @@
-/* eslint-disable react/prop-types */
-import { useState, createContext } from "react";
-export const ImageProvider = createContext(null);
+// /* eslint-disable react/prop-types */
+// import { useState, createContext } from "react";
+// export const ImageProvider = createContext(null);
 
-// Component to wrap around whole app and change its state
-export const Images = ({ children }) => {
-  const [cardImage, setCardImage] = useState("");
-  const handleCardImage = (img) => {
-    setCardImage(img);
-  };
+// // Component to wrap around whole app and change its state
+// export const Images = ({ children }) => {
+//   const [cardImage, setCardImage] = useState("");
+//   const handleCardImage = (img) => {
+//     setCardImage(img);
+//   };
 
-  return (
-    <ImageProvider.Provider value={[cardImage, handleCardImage]}>
-      {children}
-    </ImageProvider.Provider>
-  );
-};
+//   return (
+//     <ImageProvider.Provider value={[cardImage, handleCardImage]}>
+//       {children}
+//     </ImageProvider.Provider>
+//   );
+// };
