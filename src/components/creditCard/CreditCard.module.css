@@ -27,9 +27,8 @@
 }
 .card_img {
   position: absolute;
-  top: -10%;
-  right: 68%;
-  width: 200px;
+  right: 36%;
+  width: 90px;
   height: auto;
   object-fit: cover;
 }

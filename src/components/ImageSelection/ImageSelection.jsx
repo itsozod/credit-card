@@ -3,12 +3,18 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { CHANGE_IMAGE } from "../../store/actions/cardHolderAction";
 
-const ImageSelection = () => {
+export const ImageSelection = () => {
   const cardImage = useSelector((state) => state.changeImageReducer.img);
-  const imageOptions = ["image1.webp", "image2.webp", "image3.webp"];
+  const imageOptions = ["js.png", "react.png", "liverpool.png"];
   const dispatch = useDispatch();
   return (
     <>
+      <button
+        className={styles.clear}
+        onClick={() => dispatch({ type: CHANGE_IMAGE, payload: "" })}
+      >
+        Clear Image
+      </button>
       <div className={styles.image_container}>
         {imageOptions.map((img) => (
           <img
@@ -19,15 +25,7 @@ const ImageSelection = () => {
             onClick={() => dispatch({ type: CHANGE_IMAGE, payload: img })}
           ></img>
         ))}
-        <p
-          className={styles.clear}
-          onClick={() => dispatch({ type: CHANGE_IMAGE, payload: "" })}
-        >
-          Clear
-        </p>
       </div>
     </>
   );
 };
-
-export default ImageSelection;
